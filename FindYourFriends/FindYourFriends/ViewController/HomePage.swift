@@ -15,7 +15,9 @@ class HomePage: UIViewController {
         let url = "https://jsonplaceholder.typicode.com/users"
         
         let dataReciver: DataReciver = DataReciver()
-        dataReciver.getUserData(urlString: url)
+        
+        var friends = [Friend]()
+        friends = dataReciver.getUserData(urlString: url)
         
     }
 }

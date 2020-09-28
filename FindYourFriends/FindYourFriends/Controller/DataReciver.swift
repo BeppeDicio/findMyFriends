@@ -9,16 +9,20 @@ import Foundation
 
 class DataReciver {
     
-    public func getUserData(urlString: String){
+    public func getUserData(urlString: String) -> [Friend]{
+        
+        var friends = [Friend]()
         
         self.loadJson(fromURLString: urlString) { (result) in
             switch result {
             case .success(let data):
-                self.parse(jsonData: data)
+                friends = self.parse(jsonData: data)
             case .failure(let error):
                 print(error)
             }
         }
+        
+        return friends
     }
     
     private func loadJson(fromURLString urlString: String,
@@ -38,31 +42,38 @@ class DataReciver {
         }
     }
     
-    private func parse(jsonData: Data){
+    private func parse(jsonData: Data) -> [Friend]{
         
-        do {
+        var friends = [Friend]()
+        
+        do { 
             let response = try JSONDecoder().decode([User].self, from: jsonData)
             
             for friend in response {
-                print("Id: ", friend.id)
-                print("Name: ", friend.name)
-                print("Email: ", friend.email)
-                print("Street: ", friend.address.street)
-                print("Suite: ", friend.address.suite)
-                print("City: ", friend.address.city)
-                print("Zipcode: ", friend.address.zipcode)
-                print("Lat: ", friend.address.geo.lat)
-                print("Lng: ", friend.address.geo.lng)
-                print("Phone: ", friend.phone)
-                print("Website: ", friend.website)
-                print("Company Name: ", friend.company.name)
-                print("Company CatchPhrase: ", friend.company.catchPhrase)
-                print("Company Bs: ", friend.company.bs)
-                print("===================================")
+                
+                let frnd = Friend(id: friend.id,
+                                  name: friend.name,
+                                  lat: friend.address.geo.lat,
+                                  lng: friend.address.geo.lng)
+                
+                frnd.email = friend.email
+                frnd.street = friend.address.street
+                frnd.suite = friend.address.suite
+                frnd.city = friend.address.city
+                frnd.zipcode = friend.address.zipcode
+                frnd.phone = friend.phone
+                frnd.website = friend.website
+                frnd.companyName = friend.company.name
+                frnd.companyCatchPhrase = friend.company.catchPhrase
+                frnd.companyBs = friend.company.bs
+                
+                friends.append(frnd)
             }
             
         } catch {
             print("decode error")
         }
+        
+        return friends
     }
 }
