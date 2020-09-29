@@ -9,14 +9,14 @@ import Foundation
 
 class DataReciver {
     
-    public func getUserData(urlString: String) -> [Friend]{
+    public func getUserData(urlString: String, context: HomePage) -> [Friend]{
         
         var friends = [Friend]()
         
         self.loadJson(fromURLString: urlString) { (result) in
             switch result {
             case .success(let data):
-                friends = self.parse(jsonData: data)
+                friends = self.parse(jsonData: data, context: context)
             case .failure(let error):
                 print(error)
             }
@@ -42,7 +42,7 @@ class DataReciver {
         }
     }
     
-    private func parse(jsonData: Data) -> [Friend]{
+    private func parse(jsonData: Data, context:HomePage) -> [Friend]{
         
         var friends = [Friend]()
         
@@ -73,6 +73,8 @@ class DataReciver {
         } catch {
             print("decode error")
         }
+        
+        context.updateTable(data: friends)
         
         return friends
     }
