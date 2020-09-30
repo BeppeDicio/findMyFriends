@@ -46,6 +46,14 @@ class DataReciver {
         
         var friends = [Friend]()
         
+        var myLat: Double = 0
+        var myLng: Double = 0
+        var frdLat: Double = 0
+        var frdLng: Double = 0
+        
+        myLat = Double(context.mydata.lat) ?? -1
+        myLng = Double(context.mydata.lng) ?? -1
+        
         do { 
             let response = try JSONDecoder().decode([User].self, from: jsonData)
             
@@ -66,6 +74,16 @@ class DataReciver {
                 frnd.companyName = friend.company.name
                 frnd.companyCatchPhrase = friend.company.catchPhrase
                 frnd.companyBs = friend.company.bs
+                
+                frdLat = Double(friend.address.geo.lat) ?? -1
+                frdLng = Double(friend.address.geo.lng) ?? -1
+                
+                if(myLat == -1 || myLng == -1 || frdLat == -1 || frdLng == -1 ){
+                    frnd.distance = -1
+                } else {
+                
+                    frnd.distance = context.coordUtil.getDistanceKm(myLat: myLat, myLng: myLng, friendsLat: frdLat, friendsLng: frdLng)
+                }
                 
                 friends.append(frnd)
             }

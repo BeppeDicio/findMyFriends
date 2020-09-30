@@ -29,6 +29,7 @@ class Friend {
     var zipcode: String?
     var lat: String
     var lng: String
+    var distance: Double = 0
     var phone: String?
     var website: String?
     var companyName: String?

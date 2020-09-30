@@ -10,20 +10,20 @@ import CoreLocation
 
 class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var mydata: Friend?
+    // Creation of a my information profile
+    //TODO: Creation of an onboarding process to get the data from the user.
+    var mydata: Friend = Friend(id: 0,
+                                name: "Giuseppe Diciolla",
+                                lat: "-1",
+                                lng: "-1")
     var friends: [Friend] = []
     var locationManager = CLLocationManager()
     @IBOutlet weak var friendsTV: UITableView!
     
+    let coordUtil = CoordinateUtil()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Creation of a my information profile
-        //TODO: Creation of an onboarding process to get the data from the user.
-        mydata = Friend(id: 0,
-                        name: "Giuseppe Diciolla",
-                        lat: "-1",
-                        lng: "-1")
         
         // get current position of the user on the moment he open the app
         //TODO: adapt the get location request with the new location privacy guideline of Apple released with iOS 14
@@ -32,8 +32,8 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
         CLLocationManager.authorizationStatus() == .authorizedAlways) {
           currentLoc = locationManager.location
-          self.mydata?.lat = String(currentLoc.coordinate.latitude)
-          self.mydata?.lng = String(currentLoc.coordinate.longitude)
+          self.mydata.lat = String(currentLoc.coordinate.latitude)
+          self.mydata.lng = String(currentLoc.coordinate.longitude)
           print(currentLoc.coordinate.latitude)
           print(currentLoc.coordinate.longitude)
         }
@@ -43,12 +43,15 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let url = "https://jsonplaceholder.typicode.com/users"
         let dataReciver: DataReciver = DataReciver()
         friends = [Friend]()
-        friends = dataReciver.getUserData(urlString: url, context: self)
+        dataReciver.getUserData(urlString: url, context: self)
         
     }
     
     func updateTable(data: [Friend]){
         self.friends = data
+        friends = friends.sorted { (fr1: Friend, fr2: Friend) -> Bool in
+            return fr1.distance < fr2.distance
+        }
         DispatchQueue.main.async{
             self.friendsTV.reloadData()
         }
@@ -65,7 +68,8 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let friend = friends[indexPath.row]
         
         cell.friendName.text = friend.name
-        cell.friendDistanceToYou.text = "1000km"
+        
+        cell.friendDistanceToYou.text = String(format: "%.2f", friend.distance) + " Km"
         
         return cell
     }
