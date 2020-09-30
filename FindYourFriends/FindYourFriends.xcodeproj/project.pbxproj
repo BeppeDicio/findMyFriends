@@ -18,6 +18,7 @@
 		D9CEE0F72520D5780077ADE7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE0F62520D5780077ADE7 /* User.swift */; };
 		D9CEE0FD2520D5C20077ADE7 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE0FC2520D5C20077ADE7 /* HomePage.swift */; };
 		D9CEE1032520D6290077ADE7 /* DataReciver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE1022520D6290077ADE7 /* DataReciver.swift */; };
+		D9DDAEF22524CEB900807C84 /* CustomFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDAEF12524CEB900807C84 /* CustomFriendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D9CEE0F62520D5780077ADE7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D9CEE0FC2520D5C20077ADE7 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		D9CEE1022520D6290077ADE7 /* DataReciver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReciver.swift; sourceTree = "<group>"; };
+		D9DDAEF12524CEB900807C84 /* CustomFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFriendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CEE1022520D6290077ADE7 /* DataReciver.swift */,
+				D9DDAEF12524CEB900807C84 /* CustomFriendTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DDAEF22524CEB900807C84 /* CustomFriendTableViewCell.swift in Sources */,
 				D9CEE0FD2520D5C20077ADE7 /* HomePage.swift in Sources */,
 				D99A0DBA25226013000B2CE3 /* Friend.swift in Sources */,
 				D9CEE1032520D6290077ADE7 /* DataReciver.swift in Sources */,

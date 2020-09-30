@@ -59,9 +59,13 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
+        //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = friends[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomFriendTableViewCell
+        let friend = friends[indexPath.row]
+        
+        cell.friendName.text = friend.name
+        cell.friendDistanceToYou.text = "1000km"
         
         return cell
     }
