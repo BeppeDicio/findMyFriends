@@ -7,6 +7,10 @@
 
 import Foundation
 
+/*
+    We need this to store all the infos from our friend
+*/
+
 class Friend {
     
     init(id: Int, name: String, lat: String, lng: String) {

@@ -7,6 +7,10 @@
 
 import Foundation
 
+/*
+    this structure is needed to map the JSON result from the URL
+*/
+
 // MARK: - User
 struct User: Codable {
     let id: Int
