@@ -25,6 +25,11 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // my data
+        mydata.name = "Giuseppe Diciolla"
+        mydata.street = "Via molisana 30F 50593 Montecatini"
+        mydata.phone = "+39 334 8839405"
+        
         // get current position of the user on the moment he open the app
         //TODO: adapt the get location request with the new location privacy guideline of Apple released with iOS 14
         locationManager.requestWhenInUseAuthorization()
@@ -45,6 +50,7 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         friends = [Friend]()
         dataReciver.getUserData(urlString: url, context: self)
         
+        /* ------------------------- SETUP USER PAGE --------------------------- */
     }
     
     func updateTable(data: [Friend]){
