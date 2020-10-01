@@ -36,11 +36,11 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         var currentLoc: CLLocation!
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
         CLLocationManager.authorizationStatus() == .authorizedAlways) {
-          currentLoc = locationManager.location
-          self.mydata.lat = String(currentLoc.coordinate.latitude)
-          self.mydata.lng = String(currentLoc.coordinate.longitude)
-          print(currentLoc.coordinate.latitude)
-          print(currentLoc.coordinate.longitude)
+            currentLoc = locationManager.location
+            self.mydata.lat = String(currentLoc.coordinate.latitude)
+            self.mydata.lng = String(currentLoc.coordinate.longitude)
+            print(currentLoc.coordinate.latitude)
+            print(currentLoc.coordinate.longitude)
         }
         
         // Get data from URL and mapp them into a list of Friend Obj
@@ -75,8 +75,18 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         cell.friendName.text = friend.name
         
-        cell.friendDistanceToYou.text = String(format: "%.2f", friend.distance) + " Km"
+        cell.friendDistanceToYou.text = String(format: "%.2f", friend.distance) + " Km from you"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "DetailCardSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! DetailCard
+        vc.detailData = friends[friendsTV.indexPathForSelectedRow!.row]
     }
 }

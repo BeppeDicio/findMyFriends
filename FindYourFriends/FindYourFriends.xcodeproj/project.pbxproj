@@ -21,6 +21,7 @@
 		D9DDAEF22524CEB900807C84 /* CustomFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDAEF12524CEB900807C84 /* CustomFriendTableViewCell.swift */; };
 		D9DDAEF72524D52500807C84 /* CoordinateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDAEF62524D52500807C84 /* CoordinateUtil.swift */; };
 		D9DDAEFC252528AD00807C84 /* UserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDAEFB252528AD00807C84 /* UserPage.swift */; };
+		D9DDAF01252530FC00807C84 /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDAF00252530FC00807C84 /* DetailCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D9DDAEF12524CEB900807C84 /* CustomFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFriendTableViewCell.swift; sourceTree = "<group>"; };
 		D9DDAEF62524D52500807C84 /* CoordinateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateUtil.swift; sourceTree = "<group>"; };
 		D9DDAEFB252528AD00807C84 /* UserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPage.swift; sourceTree = "<group>"; };
+		D9DDAF00252530FC00807C84 /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CEE1012520D61D0077ADE7 /* Controller */,
-				D9CEE0FB2520D5B00077ADE7 /* ViewController */,
+				D9CEE0FB2520D5B00077ADE7 /* View */,
 				D9CEE0F52520D5580077ADE7 /* Model */,
 				D9CEE0C22520A38C0077ADE7 /* AppDelegate.swift */,
 				D9CEE0C42520A38C0077ADE7 /* SceneDelegate.swift */,
@@ -151,13 +153,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D9CEE0FB2520D5B00077ADE7 /* ViewController */ = {
+		D9CEE0FB2520D5B00077ADE7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D9CEE0FC2520D5C20077ADE7 /* HomePage.swift */,
 				D9DDAEFB252528AD00807C84 /* UserPage.swift */,
+				D9DDAF00252530FC00807C84 /* DetailCard.swift */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		D9CEE1012520D61D0077ADE7 /* Controller */ = {
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DDAF01252530FC00807C84 /* DetailCard.swift in Sources */,
 				D9DDAEF22524CEB900807C84 /* CustomFriendTableViewCell.swift in Sources */,
 				D9CEE0FD2520D5C20077ADE7 /* HomePage.swift in Sources */,
 				D99A0DBA25226013000B2CE3 /* Friend.swift in Sources */,
@@ -494,7 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.diciodix.FindYourFriends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -513,7 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.diciodix.FindYourFriends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
