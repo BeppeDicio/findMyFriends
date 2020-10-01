@@ -71,6 +71,7 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomFriendTableViewCell
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         let friend = friends[indexPath.row]
         
         cell.friendName.text = friend.name
