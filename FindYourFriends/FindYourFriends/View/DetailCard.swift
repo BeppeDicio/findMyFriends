@@ -22,6 +22,24 @@ class DetailCard: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MAPPVIEW SETUP
+        // 1
+        let location = CLLocationCoordinate2D(latitude: Double(detailData!.lat)!,
+                                              longitude: Double(detailData!.lng)!)
+        
+        // 2
+        let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+        let region = MKCoordinateRegion(center: location, span: span)
+            mapView.setRegion(region, animated: true)
+            
+        //3
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = detailData?.name
+        mapView.addAnnotation(annotation)
+        
+        // END MAPPVIEW SETUP
+        
         nomeutente.text = detailData?.name
         userStreet.text = detailData?.street
         callCTA.layer.cornerRadius = 25
@@ -46,6 +64,9 @@ class DetailCard: UIViewController{
      }
     
     @objc func mapAction(sender: UIButton!) {
-       print("Button tapped")
+        
+        MappUtil.goToMap(venueLat: detailData!.lat as NSString, venueLng: detailData!.lng as NSString, label: detailData!.name)
+        
+        print("Button tapped")
     }
 }

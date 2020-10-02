@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -19,6 +20,16 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var friends: [Friend] = []
     var locationManager = CLLocationManager()
     @IBOutlet weak var friendsTV: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBAction func `switch`(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            friendsTV.alpha = 1
+            mapView.alpha = 0
+        } else {
+            friendsTV.alpha = 0
+            mapView.alpha = 1
+        }
+    }
     
     let coordUtil = CoordinateUtil()
     
@@ -32,16 +43,19 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         // get current position of the user on the moment he open the app
         //TODO: adapt the get location request with the new location privacy guideline of Apple released with iOS 14
-        locationManager.requestWhenInUseAuthorization()
-        var currentLoc: CLLocation!
-        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-        CLLocationManager.authorizationStatus() == .authorizedAlways) {
-            currentLoc = locationManager.location
-            self.mydata.lat = String(currentLoc.coordinate.latitude)
-            self.mydata.lng = String(currentLoc.coordinate.longitude)
-            print(currentLoc.coordinate.latitude)
-            print(currentLoc.coordinate.longitude)
-        }
+        
+        do {
+            locationManager.requestWhenInUseAuthorization()
+            var currentLoc: CLLocation!
+            if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == .authorizedAlways) {
+                currentLoc = locationManager.location
+                self.mydata.lat = String(currentLoc.coordinate.latitude)
+                self.mydata.lng = String(currentLoc.coordinate.longitude)
+                print(currentLoc.coordinate.latitude)
+                print(currentLoc.coordinate.longitude)
+            }
+        } catch {}
         
         // Get data from URL and mapp them into a list of Friend Obj
         //TODO: a real Api, that gives you the firend list, and updates when some other friends where added
@@ -50,7 +64,6 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         friends = [Friend]()
         dataReciver.getUserData(urlString: url, context: self)
         
-        /* ------------------------- SETUP USER PAGE --------------------------- */
     }
     
     func updateTable(data: [Friend]){
@@ -75,6 +88,8 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let friend = friends[indexPath.row]
         
         cell.friendName.text = friend.name
+        cell.navigateToFriendButton.addTarget(self, action: #selector(connected(sender:)), for: .touchUpInside)
+        cell.navigateToFriendButton.tag = indexPath.row
         
         cell.friendDistanceToYou.text = String(format: "%.2f", friend.distance) + " Km from you"
         
@@ -89,5 +104,11 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! DetailCard
         vc.detailData = friends[friendsTV.indexPathForSelectedRow!.row]
+    }
+    
+    @objc func connected(sender: UIButton){
+        MappUtil.goToMap(venueLat: friends[sender.tag].lat as NSString,
+                         venueLng: friends[sender.tag].lng as NSString,
+                         label: friends[sender.tag].name)
     }
 }

@@ -153,6 +153,9 @@
                                     <segment title="List"/>
                                     <segment title="Map"/>
                                 </segments>
+                                <connections>
+                                    <action selector="switch:" destination="ZBm-z8-l2r" eventType="valueChanged" id="YUd-Qb-mAL"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="friends around you " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMt-so-bEB">
                                 <rect key="frame" x="38" y="255" width="338" height="39"/>
@@ -165,6 +168,10 @@
                                 <rect key="frame" x="87" y="78" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-8m-T2w">
+                                <rect key="frame" x="0.0" y="396" width="414" height="417"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cSA-Sb-LNo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -172,6 +179,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="person.3" catalog="system" id="MIx-tU-vPE"/>
                     <connections>
                         <outlet property="friendsTV" destination="PNC-nR-qDa" id="yh5-lP-uB5"/>
+                        <outlet property="mapView" destination="xF7-8m-T2w" id="suk-YA-YGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUA-zt-bHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -205,7 +213,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dJs-iw-aTS">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJs-iw-aTS">
                                 <rect key="frame" x="0.0" y="483" width="414" height="379"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
