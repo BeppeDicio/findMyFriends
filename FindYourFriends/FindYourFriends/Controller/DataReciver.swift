@@ -37,7 +37,6 @@ class DataReciver {
                     completion(.success(data))
                 }
             }
-            
             urlSession.resume()
         }
     }

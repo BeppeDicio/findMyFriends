@@ -17,6 +17,6 @@ class CoordinateUtil {
 
         let distanceInMeters = myCoordinate.distance(from: frdCoordinate)
         
-        return Double(distanceInMeters/1000)
+        return distanceInMeters/1000
     }
 }

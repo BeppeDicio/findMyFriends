@@ -17,7 +17,5 @@ class CustomFriendTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.navigateToFriendButton.layer.cornerRadius = navigateToFriendButton.bounds.height/2
-        
     }
-    
 }
