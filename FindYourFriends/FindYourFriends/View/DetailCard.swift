@@ -16,6 +16,10 @@ class DetailCard: UIViewController{
     @IBOutlet weak var navigateCTA: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var userStreet: UILabel!
+    @IBAction func closeB(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
     
     var detailData: Friend?
     
