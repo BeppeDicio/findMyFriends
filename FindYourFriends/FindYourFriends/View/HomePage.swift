@@ -71,6 +71,9 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         friends = friends.sorted { (fr1: Friend, fr2: Friend) -> Bool in
             return fr1.distance < fr2.distance
         }
+        
+        addMarkersOnMap()
+        
         DispatchQueue.main.async{
             self.friendsTV.reloadData()
         }
@@ -99,6 +102,30 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "DetailCardSegue", sender: self)
+    }
+    
+    func addMarkersOnMap(){
+        // ADD MARKERS ON MAPP
+        var index = 0
+        for frnd in self.friends {
+            do {
+                let location = CLLocationCoordinate2D(latitude: Double(frnd.lat)!,
+                                                    longitude: Double(frnd.lng)!)
+                
+                // 2
+                if index == 0 {
+                    let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+                    let region = MKCoordinateRegion(center: location, span: span)
+                    mapView.setRegion(region, animated: true)
+                }
+                //3
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location
+                annotation.title = frnd.name
+                self.mapView.addAnnotation(annotation)
+            } catch {}
+            index = index + 1
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -29,7 +29,7 @@ class DetailCard: UIViewController{
         // MAPPVIEW SETUP
         // 1
         let location = CLLocationCoordinate2D(latitude: Double(detailData!.lat)!,
-                                              longitude: Double(detailData!.lng)!)
+                                            longitude: Double(detailData!.lng)!)
         
         // 2
         let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)

@@ -168,7 +168,7 @@
                                 <rect key="frame" x="87" y="78" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-8m-T2w">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-8m-T2w">
                                 <rect key="frame" x="0.0" y="396" width="414" height="417"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
@@ -291,7 +291,7 @@
     <resources>
         <image name="Nav" width="36" height="36"/>
         <image name="call" width="36" height="36"/>
-        <image name="close" width="24" height="24"/>
+        <image name="close" width="36" height="36"/>
         <image name="editeProfile" width="64" height="64"/>
         <image name="fyfriends" width="64" height="64"/>
         <image name="person" catalog="system" width="128" height="117"/>
