@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate{
     
     // Creation of a my information profile
     //TODO: Creation of an onboarding process to get the data from the user.
@@ -35,6 +35,11 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            // Always adopt a light interface style.
+            overrideUserInterfaceStyle = .light
+        }
         
         // my data
         mydata.name = "Giuseppe Diciolla"
@@ -106,6 +111,7 @@ class HomePage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func addMarkersOnMap(){
         // ADD MARKERS ON MAPP
+        // TODO: Implement a cardlist that let you chance the pins by scrolling orizontally, like google maps with restaurants
         var index = 0
         for frnd in self.friends {
             do {

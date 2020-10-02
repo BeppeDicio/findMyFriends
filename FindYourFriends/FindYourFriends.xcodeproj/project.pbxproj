@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9711E42252782CC00DD92AC /* RedHatDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9711E41252782CC00DD92AC /* RedHatDisplay-Regular.ttf */; };
+		D9711E472527832800DD92AC /* RedHatDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9711E462527832800DD92AC /* RedHatDisplay-Bold.ttf */; };
 		D99A0DBA25226013000B2CE3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99A0DB925226013000B2CE3 /* Friend.swift */; };
 		D9CEE0C32520A38C0077ADE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE0C22520A38C0077ADE7 /* AppDelegate.swift */; };
 		D9CEE0C52520A38C0077ADE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE0C42520A38C0077ADE7 /* SceneDelegate.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9711E41252782CC00DD92AC /* RedHatDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RedHatDisplay-Regular.ttf"; path = "../../../../../../Downloads/Red_Hat_Display/RedHatDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		D9711E462527832800DD92AC /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RedHatDisplay-Bold.ttf"; path = "../../../../../../Downloads/Red_Hat_Display/RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		D99A0DB925226013000B2CE3 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D9CEE0BF2520A38C0077ADE7 /* FindYourFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindYourFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CEE0C22520A38C0077ADE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9711E402527829400DD92AC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D9711E41252782CC00DD92AC /* RedHatDisplay-Regular.ttf */,
+				D9711E462527832800DD92AC /* RedHatDisplay-Bold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		D9CEE0B62520A38C0077ADE7 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 				D9CEE0CB2520A38D0077ADE7 /* Assets.xcassets */,
 				D9CEE0CD2520A38D0077ADE7 /* LaunchScreen.storyboard */,
 				D9CEE0D02520A38D0077ADE7 /* Info.plist */,
+				D9711E402527829400DD92AC /* fonts */,
 			);
 			path = FindYourFriends;
 			sourceTree = "<group>";
@@ -281,7 +295,9 @@
 			files = (
 				D9CEE0CF2520A38D0077ADE7 /* LaunchScreen.storyboard in Resources */,
 				D9CEE0CC2520A38D0077ADE7 /* Assets.xcassets in Resources */,
+				D9711E42252782CC00DD92AC /* RedHatDisplay-Regular.ttf in Resources */,
 				D9CEE0CA2520A38C0077ADE7 /* Main.storyboard in Resources */,
+				D9711E472527832800DD92AC /* RedHatDisplay-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

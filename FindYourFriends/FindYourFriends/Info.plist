@@ -64,5 +64,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>RedHatDisplay-Regular.ttf</string>
+		<string>RedHatDisplay-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

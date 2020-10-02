@@ -26,6 +26,11 @@ class DetailCard: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+            // Always adopt a light interface style.
+            overrideUserInterfaceStyle = .light
+        }
+        
         // MAPPVIEW SETUP
         // 1
         let location = CLLocationCoordinate2D(latitude: Double(detailData!.lat)!,
@@ -45,10 +50,15 @@ class DetailCard: UIViewController{
         // END MAPPVIEW SETUP
         
         nomeutente.text = detailData?.name
+        
+        // TODO: Create streetString from db that gives a formatted street string
+        // so that on front-end it is not needed to make to much controlls on the single objs
         userStreet.text = detailData?.street
+        
+        
+        // BUTTON SET UP
         callCTA.layer.cornerRadius = 25
         navigateCTA.layer.cornerRadius = 25
-        
         callCTA.addTarget(self, action: #selector(callAction), for: .touchUpInside)
         navigateCTA.addTarget(self, action: #selector(mapAction), for: .touchUpInside)
         
